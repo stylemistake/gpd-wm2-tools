@@ -1,0 +1,13 @@
+[Unit]
+Description=GPD Win Max 2 sleep hooks
+Before=sleep.target
+StopWhenUnneeded=yes
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/etc/systemd/system/gpd-wm2-sleep-hooks.sh sleep
+ExecStop=/etc/systemd/system/gpd-wm2-sleep-hooks.sh wake
+
+[Install]
+WantedBy=sleep.target
